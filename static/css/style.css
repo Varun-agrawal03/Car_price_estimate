@@ -1,0 +1,141 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    background: #808080 !important;
+    min-height: 100vh;
+    font-family: "Segoe UI", sans-serif;
+    padding-bottom: 80px; /* Space for footer */
+}
+link[rel="icon"].invert {
+    filter: invert(1);
+}
+
+/* CARD STYLING */
+.card {
+    background-color: #BFD1E5 !important;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    padding: 30px;
+}
+
+.card-header {
+    background-color: #808080!important;
+    border-bottom: none;
+    padding: 15px;
+    border-radius: 20px 20px 0 0;
+}
+
+.card-header h1 {
+    color: #17a2b8;
+    font-weight: 700;
+}
+
+/* FORM */
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.form-control {
+    border-radius: 8px;
+    padding: 10px 15px;
+}
+
+/* BUTTON */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background-color: #005dc1;
+}
+
+/* PREDICTION TEXT */
+#prediction {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #28a745;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+/* FOOTER */
+.footer {
+    background: #1c1c1c;
+    color: #ffffff;
+    width: 100%;
+    padding: 30px 0;
+    border-top: 3px solid #444;
+    position: relative;
+    bottom: 0;
+    left: 0;
+}
+
+.footer h5,
+.footer h6 {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.footer p {
+    color: #dcdcdc;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Badges */
+.footer .badge-info {
+    background-color: #17a2b8;
+    padding: 6px 12px;
+    border-radius: 8px;
+    margin: 4px;
+    font-size: 13px;
+    transition: 0.3s ease;
+}
+
+.footer .badge-info:hover {
+    background-color: #138496;
+    transform: scale(1.05);
+}
+
+/* COPYRIGHT */
+.footer .copy {
+    margin-top: 20px;
+    font-size: 14px;
+    opacity: 0.8;
+    transition: 0.3s ease;
+}
+
+.footer .copy:hover {
+    opacity: 1;
+}
+
+/* RESPONSIVE */
+@media (max-width: 576px) {
+    .card {
+        padding: 20px;
+    }
+
+    .footer p {
+        font-size: 14px;
+    }
+
+    .footer .badge-info {
+        font-size: 12px;
+        padding: 5px 8px;
+    }
+}

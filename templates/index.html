@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Car Price Predictor</title>
+
+    <!-- ✅ Favicon -->
+    <link rel="icon" type="image/png"
+          href="{{ url_for('static', filename='images/favicon.png') }} class="invert" >
+
+    <!-- ✅ Custom CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}?v=20">
+
+    <!-- ✅ Bootstrap + Fonts -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+
+    <!-- ✅ jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-7 col-md-9 col-sm-11">
+
+            <div class="card mt-5 mb-5">
+
+                <div class="card-header text-center" style="background:#2d2e2e;">
+                    <h1 class="text-white">Welcome to Car Price Predictor</h1>
+                </div>
+
+                <div class="card-body">
+
+                    <div class="text-center mb-4">
+                        <h5>Try filling the details below:</h5>
+                    </div>
+
+                    <!-- ✅ FORM -->
+                    <form method="post" id="Modelform">
+
+                        <div class="form-group">
+                            <label for="company">Select the company:</label>
+                            <select class="form-control"
+                                    id="company" name="company"
+                                    onchange="load_car_models(this.id,'car_models')" required>
+                                {% for company in companies %}
+                                <option value="{{ company }}">{{ company }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="car_models">Select the model:</label>
+                            <select class="form-control" id="car_models" name="car_models" required></select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="year">Select Year of Purchase:</label>
+                            <select class="form-control" id="year" name="year" required>
+                                {% for year in years %}
+                                <option value="{{ year }}">{{ year }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fuel_type">Select the Fuel Type:</label>
+                            <select class="form-control" id="fuel_type" name="fuel_type" required>
+                                {% for fuel in fuel_types %}
+                                <option value="{{ fuel }}">{{ fuel }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Enter the Kilometres Driven:</label>
+                            <input type="text" class="form-control"
+                                   id="kilo_driven" name="kilo_driven"
+                                   placeholder="Enter kilometres driven">
+                        </div>
+
+                        <button class="btn btn-primary btn-block" type="button" onclick="send_data()">
+                            Predict Price
+                        </button>
+                    </form>
+
+                    <div class="text-center mt-3">
+                        <h2><span id="prediction"></span></h2>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- ✅ FOOTER ALWAYS VISIBLE -->
+<footer class="footer bg-dark text-white py-3 mt-4">
+    <div class="container text-center">
+
+        <h5>About Me</h5>
+        <p class="mb-2">
+            Hi! I'm <strong>Varun Agrawal</strong>, a CSE student passionate about
+            Machine Learning, Data Science, and Full-Stack Development.
+        </p>
+
+        <h6>Tech Stack Used in this Project:</h6>
+        <p>
+            <span class="badge badge-info">Python</span>
+            <span class="badge badge-info">Flask</span>
+            <span class="badge badge-info">Bootstrap</span>
+            <span class="badge badge-info">Machine Learning</span>
+        </p>
+
+        <p class="mt-3 mb-0">
+            © 2025 Car Price Predictor — Varun Agrawal
+        </p>
+
+    </div>
+</footer>
+
+<!-- ✅ JS LOGIC -->
+<script>
+    function load_car_models(company_id, car_model_id) {
+        var company = document.getElementById(company_id);
+        var car_model = document.getElementById(car_model_id);
+        car_model.innerHTML = "";
+
+        {% for company in companies %}
+        if (company.value == "{{ company }}") {
+            {% for model in car_models %}
+            {% if company in model %}
+            var opt = document.createElement("option");
+            opt.value = "{{ model }}";
+            opt.innerHTML = "{{ model }}";
+            car_model.appendChild(opt);
+            {% endif %}
+            {% endfor %}
+        }
+        {% endfor %}
+    }
+
+    function send_data() {
+        var fd = new FormData(document.getElementById('Modelform'));
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/predict', true);
+
+        document.getElementById('prediction').innerHTML = "Wait... Predicting Price...";
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == XMLHttpRequest.DONE) {
+                document.getElementById('prediction').innerHTML =
+                    "Prediction: ₹" + xhr.responseText;
+            }
+        };
+
+        xhr.send(fd);
+    }
+</script>
+
+</body>
+</html>
