@@ -67,14 +67,13 @@ car-price-predictor/
 ---
 
 
----
-
 ## ▶️ Run Locally
 
-### 1. Clone the repository
+1. Clone the repository
 ```bash
 git clone https://github.com/your-username/car-price-predictor.git
 cd car-price-predictor
+
 ---
 
 2. Create a virtual environment
