@@ -66,28 +66,35 @@ car-price-predictor/
 
 ---
 
+
+---
+
 ## ▶️ Run Locally
 
 ### 1. Clone the repository
 ```bash
 git clone https://github.com/your-username/car-price-predictor.git
 cd car-price-predictor
-'''
+---
 
-### 2. Create a virtual environment
+2. Create a virtual environment
 python -m venv venv
 
-### 3. Activate environment
-# Windows
+3. Activate environment
+
+Windows
+
 venv\Scripts\activate
 
-# Mac/Linux
+
+Mac/Linux
+
 source venv/bin/activate
 
-### 4. Install dependencies
+4. Install dependencies
 pip install -r requirements.txt
 
-### 5. Run the Flask app
+5. Run the Flask app
 python app.py
 
 👨‍💻 About the Developer
@@ -95,7 +102,7 @@ python app.py
 Varun Agrawal
 CSE Student | Machine Learning Enthusiast | Full-Stack Developer
 
-Passionate about ML, DataScience, and building real-world applications.
+Passionate about ML, Data Science, and building real-world applications.
 
 📬 Contact
 
