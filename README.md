@@ -72,6 +72,7 @@ car-price-predictor/
 ```bash
 git clone https://github.com/your-username/car-price-predictor.git
 cd car-price-predictor
+'''
 
 ### 2. Create a virtual environment
 python -m venv venv
