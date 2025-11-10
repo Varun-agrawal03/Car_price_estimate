@@ -73,7 +73,6 @@ car-price-predictor/
 ```bash
 git clone https://github.com/your-username/car-price-predictor.git
 cd car-price-predictor
-
 ---
 
 2. Create a virtual environment
@@ -95,8 +94,11 @@ pip install -r requirements.txt
 
 5. Run the Flask app
 python app.py
+ 
 
-👨‍💻 About the Developer
+---
+
+## 👨‍💻 About the Developer
 
 Varun Agrawal
 CSE Student | Machine Learning Enthusiast | Full-Stack Developer
@@ -108,3 +110,6 @@ Passionate about ML, Data Science, and building real-world applications.
 📧 Email: varunagrawal320@gmail.com
 
 🌐 GitHub: https://github.com/Varun-agrawal03
+
+
+
